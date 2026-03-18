@@ -1,8 +1,5 @@
 package lab.oodp.pancake;
 
-/**
- * A pancake. Yum.
- */
 public class Pancake {
 
     private int number;
