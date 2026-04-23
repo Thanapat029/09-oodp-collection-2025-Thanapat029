@@ -1,25 +1,33 @@
 package lab.oodp.library;
 
-public class CDs extends LibraryItem implements Comparable<CDs> {
+public class CDs {
 
-    private String artist;
-    private String genre;
+    private String title;
+    private String status;
 
-    // constructor
-    public CDs(String title, String artist, String genre, Status status) {
+    public CDs(String title) {
         this.title = title;
-        this.artist = artist;
-        this.genre = genre;
-        this.status = status;
+        this.status = "available";
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void borrow() {
+        status = "borrowed";
+    }
+
+    public void returned() {
+        status = "available";
     }
 
     @Override
     public String toString() {
-        return "CD by " + artist + " Album name:" + title + "(Genre:" + genre + ") Status:" + status;
-    }
-
-    @Override
-    public int compareTo(CDs other) {
-        return this.artist.compareTo(other.artist);
+        return title + " (" + status + ")";
     }
 }

@@ -1,25 +1,33 @@
 package lab.oodp.library;
 
-public class Book extends LibraryItem implements Comparable<Book> {
+public class Book {
 
-    private String author;
-    private String isbn;
+    private String title;
+    private String status;
 
-    // constructor
-    public Book(String title, String author, String isbn, Status status) {
+    public Book(String title) {
         this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-        this.status = status;
+        this.status = "available";
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void borrow() {
+        status = "borrowed";
+    }
+
+    public void returned() {
+        status = "available";
     }
 
     @Override
     public String toString() {
-        return "Book title:" + title + " by " + author + "(ISBN:" + isbn + ") Status:" + status;
-    }
-
-    @Override
-    public int compareTo(Book other) {
-        return this.title.compareTo(other.title);
+        return title + " (" + status + ")";
     }
 }
